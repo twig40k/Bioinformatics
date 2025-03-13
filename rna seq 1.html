@@ -174,6 +174,45 @@ Attaching package: 'BiocGenerics'</code></pre>
     'citation("Biobase")', and for packages 'citation("pkgname")'.</code></pre>
 </div>
 </div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>genes <span class="ot">&lt;-</span> count_dataframe[[<span class="st">'gene'</span>]]</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>count_dataframe[[<span class="st">'gene'</span>]] <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>count_matrix <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(count_dataframe)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(count_matrix) <span class="ot">&lt;-</span> genes</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>experiments_of_interest <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"L1Larvae"</span>, <span class="st">"L2Larvae"</span>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>columns_of_interest <span class="ot">&lt;-</span> <span class="fu">which</span>(pheno_data[[<span class="st">'stage'</span>]] <span class="sc">%in%</span> experiments_of_interest)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>grouping <span class="ot">&lt;-</span> pheno_data[[<span class="st">"stage"</span>]] [columns_of_interest] <span class="sc">|&gt;</span> forcats<span class="sc">::</span><span class="fu">as_factor</span>()</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>counts_of_interest <span class="ot">&lt;-</span> count_matrix[,counts <span class="ot">=</span> columns_of_interest]</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>count_dge <span class="ot">&lt;-</span> edgeR<span class="sc">::</span><span class="fu">DGEList</span>(<span class="at">counts =</span> counts_of_interest, <span class="at">group =</span> grouping)</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>design <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(<span class="sc">~</span>grouping)</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>eset_dge <span class="ot">&lt;-</span> edgeR<span class="sc">::</span><span class="fu">estimateDisp</span>(count_dge, design)</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> edgeR<span class="sc">::</span><span class="fu">glmQLFit</span>(eset_dge, design)</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> edgeR<span class="sc">::</span><span class="fu">glmQLFTest</span>(fit, <span class="at">coef=</span><span class="dv">2</span>)</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a><span class="fu">topTags</span>(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Coefficient:  groupingL2Larvae 
+               logFC    logCPM        F       PValue          FDR
+FBgn0027527 6.318477 11.148756 43306.39 8.921836e-36 1.326588e-31
+FBgn0037430 6.557811  9.109132 37053.47 4.458944e-35 2.269743e-31
+FBgn0037424 6.417995  9.715826 36957.31 4.579479e-35 2.269743e-31
+FBgn0037414 6.336991 10.704514 32230.76 1.878703e-34 6.983608e-31
+FBgn0029807 6.334533  9.008720 30679.42 3.125484e-34 9.294565e-31
+FBgn0037429 6.623754  8.525136 26529.63 1.399656e-33 3.468581e-30
+FBgn0037224 7.056029  9.195077 25539.20 2.072124e-33 4.064613e-30
+FBgn0030340 6.176240  8.500866 25406.05 2.186892e-33 4.064613e-30
+FBgn0029716 5.167029  8.977840 24890.80 2.700890e-33 4.462171e-30
+FBgn0243586 6.966860  7.769756 24146.95 3.698699e-33 5.499595e-30</code></pre>
+</div>
+</div>
+<section id="results" class="level1">
+<h1>Results</h1>
+<p>FBgn0027527 is osiris 6 a gene that codes for a transmembrane protien of the fly. It is leathal with one or three copies. FBgn0037430 is osiris 10 another membrane protien that is excreted by embryonic salivary gland duct; embryonic tracheole; and epithelial tube. FBgn0037424 is osiris 15 a gene that effects the development of the tracheal system and is present in the adult head. FBgn0037414 is osiris 7 a gene that is in the plasma membrane and is expressed in embryonic dorsal epidermis; embryonic esophagus; embryonic hypopharynx; and embryonic ventral epidermis. FBgn0029807 is involved in metallocarboxypeptidase activity and the extracellular space. It is expressed in several embryonic epidermis tissues.</p>
+</section>
 
 </main>
 <!-- /main column -->
