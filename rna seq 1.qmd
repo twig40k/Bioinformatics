@@ -59,5 +59,11 @@ FBgn0037430 is osiris 10 another membrane protien that is excreted by embryonic 
 FBgn0037424 is osiris 15 a gene that effects the development of the tracheal system and is present in the adult head. 
 FBgn0037414 is osiris 7 a gene that is in the plasma membrane and is expressed in embryonic dorsal epidermis; embryonic esophagus; embryonic hypopharynx; and embryonic ventral epidermis.
 FBgn0029807 is involved in metallocarboxypeptidase activity and the extracellular space. It is expressed in several embryonic epidermis tissues.
+FBgn0037429 is osiris 19 and is involved with tracheal development.
+FBgn0037224	is TweedleF a gene involved in the development of the chitin-based cuticle.
+FBgn0030340 is an unnamed gene that is present during devolopment but its purpose is unknown.
+FBgn0029716 is also unknown but peak expresion is during larval stages.
+FBgn0243586 is Tubby a gene that is involved in the chitin-based cuticle development of the larval stages. 
 
+Almost all of these gene are part of the larval development or embryonic development. This makes sense as that is the stage we are looking at. We used a statistical test to determine differnces between instar one and two by comparing the RNA expressions in both stages. 
 
