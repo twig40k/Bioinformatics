@@ -30,7 +30,7 @@ mat <- log(as.matrix(at_tf_gex[ , 5:55]))
 ecotype <- stringr::str_split(colnames(mat), ",", simplify = TRUE)[,1]
 part <- stringr::str_split(colnames(mat), ",", simplify = TRUE)[,2]
 ```
-
+splitting the column names
 ```{r}
 data_col_func <- circlize::colorRamp2(seq(0, max(mat), length.out = 6), viridisLite::magma(6))
 
@@ -40,17 +40,18 @@ names(ecotype_colors) <- unique(ecotype)
 part_colors <- RColorBrewer::brewer.pal(3, "Accent")
 names(part_colors) <- unique(part)
 ```
-
+assigning colors and groupings
 ```{r}
 top_annot <- HeatmapAnnotation("Ecotype" = ecotype, "Plant Part" = part, col = list("Ecotype" = ecotype_colors, "Plant Part" = part_colors), annotation_name_side = "left")
 
 side_annot <- rowAnnotation(length = anno_points(at_tf_gex$Length, pch = 16, size = unit(1, "mm"), axis_param = list(at = seq(1, max(at_tf_gex$Length), length.out = 4)),))
 ```
-
+setting up the top and side of the heat map
 ```{r}
 ht_1 <- Heatmap(mat, name="log(TPM)", row_km = 6, col = data_col_func, top_annotation = top_annot, right_annotation = side_annot, cluster_columns = TRUE, column_split = ecotype, show_column_names = FALSE, column_title = " ")
 
 ComplexHeatmap::draw(ht_1)
 ```
 
-
+## Summary 
+This data compares RNA sequences from three different parts of a species across 17 different locations to the reference genome. We made a heat map in order to visualize the data. Across the top of the chart is the ecotype and then divided into the three plant parts. The left side of the graph shows the different RNA sequences grouped by relation to each other. Black coloring means the gene is expressed the same as the reference while the white and yellow color show a difference.Over all this heat map shows higher differences in the 5 and 6 grouping and low differences in the 1 and 2 grouping. Grouping 2 and 3 show some differences between plant part as shown by one row in each box being a different color. 
