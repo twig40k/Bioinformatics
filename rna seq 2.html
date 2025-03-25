@@ -135,10 +135,16 @@ This message can be suppressed by:
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridisLite)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(circlize)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridisLite)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'viridisLite' was built under R version 4.4.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'stringr' was built under R version 4.4.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(circlize)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: package 'circlize' was built under R version 4.4.3</code></pre>
 </div>
@@ -157,34 +163,34 @@ This message can be suppressed by:
   suppressPackageStartupMessages(library(circlize))
 ========================================</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rbioinfcookbook)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rbioinfcookbook)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mat <span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="fu">as.matrix</span>(at_tf_gex[ , <span class="dv">5</span><span class="sc">:</span><span class="dv">55</span>]))</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>ecotype <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_split</span>(<span class="fu">colnames</span>(mat), <span class="st">","</span>, <span class="at">simplify =</span> <span class="cn">TRUE</span>)[,<span class="dv">1</span>]</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>part <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_split</span>(<span class="fu">colnames</span>(mat), <span class="st">","</span>, <span class="at">simplify =</span> <span class="cn">TRUE</span>)[,<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>mat <span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="fu">as.matrix</span>(at_tf_gex[ , <span class="dv">5</span><span class="sc">:</span><span class="dv">55</span>]))</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>ecotype <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_split</span>(<span class="fu">colnames</span>(mat), <span class="st">","</span>, <span class="at">simplify =</span> <span class="cn">TRUE</span>)[,<span class="dv">1</span>]</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>part <span class="ot">&lt;-</span> stringr<span class="sc">::</span><span class="fu">str_split</span>(<span class="fu">colnames</span>(mat), <span class="st">","</span>, <span class="at">simplify =</span> <span class="cn">TRUE</span>)[,<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>splitting the column names</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>data_col_func <span class="ot">&lt;-</span> circlize<span class="sc">::</span><span class="fu">colorRamp2</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="fu">max</span>(mat), <span class="at">length.out =</span> <span class="dv">6</span>), viridisLite<span class="sc">::</span><span class="fu">magma</span>(<span class="dv">6</span>))</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>ecotype_colors <span class="ot">&lt;-</span> <span class="fu">c</span>(RColorBrewer<span class="sc">::</span><span class="fu">brewer.pal</span>(<span class="dv">12</span>, <span class="st">"Set3"</span>), RColorBrewer<span class="sc">::</span><span class="fu">brewer.pal</span>(<span class="dv">5</span>, <span class="st">"Set1"</span>))</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(ecotype_colors) <span class="ot">&lt;-</span> <span class="fu">unique</span>(ecotype)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>part_colors <span class="ot">&lt;-</span> RColorBrewer<span class="sc">::</span><span class="fu">brewer.pal</span>(<span class="dv">3</span>, <span class="st">"Accent"</span>)</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(part_colors) <span class="ot">&lt;-</span> <span class="fu">unique</span>(part)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>data_col_func <span class="ot">&lt;-</span> circlize<span class="sc">::</span><span class="fu">colorRamp2</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="fu">max</span>(mat), <span class="at">length.out =</span> <span class="dv">6</span>), viridisLite<span class="sc">::</span><span class="fu">magma</span>(<span class="dv">6</span>))</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>ecotype_colors <span class="ot">&lt;-</span> <span class="fu">c</span>(RColorBrewer<span class="sc">::</span><span class="fu">brewer.pal</span>(<span class="dv">12</span>, <span class="st">"Set3"</span>), RColorBrewer<span class="sc">::</span><span class="fu">brewer.pal</span>(<span class="dv">5</span>, <span class="st">"Set1"</span>))</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(ecotype_colors) <span class="ot">&lt;-</span> <span class="fu">unique</span>(ecotype)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>part_colors <span class="ot">&lt;-</span> RColorBrewer<span class="sc">::</span><span class="fu">brewer.pal</span>(<span class="dv">3</span>, <span class="st">"Accent"</span>)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(part_colors) <span class="ot">&lt;-</span> <span class="fu">unique</span>(part)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>assigning colors and groupings</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>top_annot <span class="ot">&lt;-</span> <span class="fu">HeatmapAnnotation</span>(<span class="st">"Ecotype"</span> <span class="ot">=</span> ecotype, <span class="st">"Plant Part"</span> <span class="ot">=</span> part, <span class="at">col =</span> <span class="fu">list</span>(<span class="st">"Ecotype"</span> <span class="ot">=</span> ecotype_colors, <span class="st">"Plant Part"</span> <span class="ot">=</span> part_colors), <span class="at">annotation_name_side =</span> <span class="st">"left"</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>side_annot <span class="ot">&lt;-</span> <span class="fu">rowAnnotation</span>(<span class="at">length =</span> <span class="fu">anno_points</span>(at_tf_gex<span class="sc">$</span>Length, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">size =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"mm"</span>), <span class="at">axis_param =</span> <span class="fu">list</span>(<span class="at">at =</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="fu">max</span>(at_tf_gex<span class="sc">$</span>Length), <span class="at">length.out =</span> <span class="dv">4</span>)),))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>top_annot <span class="ot">&lt;-</span> <span class="fu">HeatmapAnnotation</span>(<span class="st">"Ecotype"</span> <span class="ot">=</span> ecotype, <span class="st">"Plant Part"</span> <span class="ot">=</span> part, <span class="at">col =</span> <span class="fu">list</span>(<span class="st">"Ecotype"</span> <span class="ot">=</span> ecotype_colors, <span class="st">"Plant Part"</span> <span class="ot">=</span> part_colors), <span class="at">annotation_name_side =</span> <span class="st">"left"</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>side_annot <span class="ot">&lt;-</span> <span class="fu">rowAnnotation</span>(<span class="at">length =</span> <span class="fu">anno_points</span>(at_tf_gex<span class="sc">$</span>Length, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">size =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">"mm"</span>), <span class="at">axis_param =</span> <span class="fu">list</span>(<span class="at">at =</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="fu">max</span>(at_tf_gex<span class="sc">$</span>Length), <span class="at">length.out =</span> <span class="dv">4</span>)),))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>setting up the top and side of the heat map</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>ht_1 <span class="ot">&lt;-</span> <span class="fu">Heatmap</span>(mat, <span class="at">name=</span><span class="st">"log(TPM)"</span>, <span class="at">row_km =</span> <span class="dv">6</span>, <span class="at">col =</span> data_col_func, <span class="at">top_annotation =</span> top_annot, <span class="at">right_annotation =</span> side_annot, <span class="at">cluster_columns =</span> <span class="cn">TRUE</span>, <span class="at">column_split =</span> ecotype, <span class="at">show_column_names =</span> <span class="cn">FALSE</span>, <span class="at">column_title =</span> <span class="st">" "</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>ComplexHeatmap<span class="sc">::</span><span class="fu">draw</span>(ht_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>ht_1 <span class="ot">&lt;-</span> <span class="fu">Heatmap</span>(mat, <span class="at">name=</span><span class="st">"log(TPM)"</span>, <span class="at">row_km =</span> <span class="dv">6</span>, <span class="at">col =</span> data_col_func, <span class="at">top_annotation =</span> top_annot, <span class="at">right_annotation =</span> side_annot, <span class="at">cluster_columns =</span> <span class="cn">TRUE</span>, <span class="at">column_split =</span> ecotype, <span class="at">show_column_names =</span> <span class="cn">FALSE</span>, <span class="at">column_title =</span> <span class="st">" "</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>ComplexHeatmap<span class="sc">::</span><span class="fu">draw</span>(ht_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -196,6 +202,7 @@ This message can be suppressed by:
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
 <p>This data compares RNA sequences from three different parts of a species across 17 different locations to the reference genome. We made a heat map in order to visualize the data. Across the top of the chart is the ecotype and then divided into the three plant parts. The left side of the graph shows the different RNA sequences grouped by relation to each other. Black coloring means the gene is expressed the same as the reference while the white and yellow color show a difference.Over all this heat map shows higher differences in the 5 and 6 grouping and low differences in the 1 and 2 grouping. Grouping 2 and 3 show some differences between plant part as shown by one row in each box being a different color.</p>
+<p>test words</p>
 </section>
 
 </main>
