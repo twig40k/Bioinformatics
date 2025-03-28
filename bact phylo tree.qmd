@@ -1,0 +1,50 @@
+---
+title: "Bact phylo tree"
+author: "Ryan Hanks"
+format: html
+---
+
+The goal of this is to make a few trees based on 5 strains of bacteria and the urease genes.
+
+
+```{r}
+#install.packages("ape")
+
+#if (!require("BiocManager", quietly = TRUE))
+    #install.packages("BiocManager")
+
+#BiocManager::install("treeio")
+
+#if (!require("BiocManager", quietly = TRUE))
+    #install.packages("BiocManager")
+
+#BiocManager::install("ggtree")
+
+#if (!require("BiocManager", quietly = TRUE))
+    #install.packages("BiocManager")
+
+#BiocManager::install("SGSeq")
+#BiocManager::install("msa")
+```
+
+```{r}
+library(rbioinfcookbook)
+library(SGSeq)
+library(ape)
+library(treeio)
+library(ggplot2)
+library(ggtree)
+library(msa)
+```
+
+```{r}
+
+```
+
+
+
+
+
+
+
+
