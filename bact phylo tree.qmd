@@ -4,7 +4,7 @@ author: "Ryan Hanks"
 format: html
 ---
 
-The goal of this is to make a few trees based on 5 strains of bacteria and the urease genes.
+The goal of this is to make a few trees based on 5 strains of bacteria and the urease A gene.
 
 
 ```{r}
@@ -25,6 +25,7 @@ The goal of this is to make a few trees based on 5 strains of bacteria and the u
 
 #BiocManager::install("SGSeq")
 #BiocManager::install("msa")
+#install.packages("EnvNJ")
 ```
 
 ```{r}
@@ -35,10 +36,12 @@ library(treeio)
 library(ggplot2)
 library(ggtree)
 library(msa)
+library(EnvNJ)
 ```
 
-```{r}
 
+```{r}
+fastaconc(otus = c('fasta_seq/Bsubtilis_seq', 'fasta_seq/Bcereus_seq', 'fasta_seq/Lsphaericus_seq', 'fasta_seq/Abaumannii_seq', 'fasta_seq/Lfusiformis_seq'))
 ```
 
 
