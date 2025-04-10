@@ -26,6 +26,10 @@ The goal of this is to make a few trees based on 5 strains of bacteria and the u
 #BiocManager::install("SGSeq")
 #BiocManager::install("msa")
 #install.packages("EnvNJ")
+#install.packages('tinytex')
+#tinytex::install_tinytex()
+ 
+
 ```
 
 ```{r}
@@ -37,16 +41,63 @@ library(ggplot2)
 library(ggtree)
 library(msa)
 library(EnvNJ)
+library(tinytex)
 ```
 
 
 ```{r}
 fastaconc(otus = c('fasta_seq/Bsubtilis_seq', 'fasta_seq/Bcereus_seq', 'fasta_seq/Lsphaericus_seq', 'fasta_seq/Abaumannii_seq', 'fasta_seq/Lfusiformis_seq'))
 ```
+Used the fastaconc() function to combine all the seperate fasta files into one file.
+
+```{r}
+seq_file <- 'concatenated_multispecies.fasta'
+
+seqs <- readAAStringSet(seq_file)
+seqs
+```
+Read in the sequences into strings for R.
+
+Might need this later on desktop so leaving it in for now.
+```{r}
+# Get the TinyTeX binary directory
+#tt_path <- tinytex::tinytex_root()
+
+# Build the correct path to the LaTeX binaries
+#bin_dir <- list.dirs(file.path(tt_path, "bin"), recursive = FALSE)[1]
+
+# Prepend that path to your R session's PATH
+#Sys.setenv(PATH = paste(bin_dir, Sys.getenv("PATH"), sep = .Platform$path.sep))
+
+# Test again
+#system("pdflatex --version")
+
+#writeLines(c(
+  #"\\documentclass{article}",
+  #"\\begin{document}",
+  #"Test!",
+  #"\\end{document}"
+#), "test.tex")
+
+#tinytex::pdflatex("test.tex")
+
+```
 
 
 
+```{r}
+alignment <- msa(seqs, method = "ClustalOmega")
+msaPrettyPrint(alignment, output ="pdf", showNames = "left", showLogo = "none", verbose = TRUE, file = "whole_align.pdf", askForOverwrite=FALSE)
 
+```
+Generates a PDF file with the sequence alignments. For some reason this breaks when verbose is false so the output is messy but nessicary. 
+
+```{r}
+alignment_seqinr <- msaConvert(alignment, type = "seqinr::alignment")
+distances <- seqinr::dist.alignment(alignment_seqinr, "identity")
+tree <- ape::nj(distances)
+plot(tree, main = "Phylogenetic Tree of UreA Sequences")
+```
 
 
 
