@@ -316,8 +316,10 @@ Attaching package: 'ggplot2'</code></pre>
 
 Please cite:
 
-Guangchuang Yu. Using ggtree to visualize data on tree-like structures.
-Current Protocols in Bioinformatics. 2020, 69:e96. doi:10.1002/cpbi.96</code></pre>
+Guangchuang Yu, Tommy Tsan-Yuk Lam, Huachen Zhu, Yi Guan. Two methods
+for mapping and visualizing associated data on phylogeny using ggtree.
+Molecular Biology and Evolution. 2018, 35(12):3041-3043.
+doi:10.1093/molbev/msy194</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>
@@ -359,7 +361,7 @@ Attaching package: 'ggtree'</code></pre>
 <pre><code>[1] "Work finished. Fasta file saved at ./concatenated_multispecies.fasta"</code></pre>
 </div>
 </div>
-<p>Used the fastaconc() function to combine all the seperate fasta files into one file.</p>
+<p>Used the fastaconc() function to combine all the separate fasta files into one file.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>seq_file <span class="ot">&lt;-</span> <span class="st">'concatenated_multispecies.fasta'</span></span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -376,25 +378,25 @@ Attaching package: 'ggtree'</code></pre>
 </div>
 </div>
 <p>Read in the sequences into strings for R.</p>
-<p>Might need this later on desktop so leaving it in for now.</p>
+<p>Might need this later on desktop so leaving it in for now. I am having issues with the latex text to pdf function in msaprettyprint but setting the tinytex path seams to fix it.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the TinyTeX binary directory</span></span>
-<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="co">#tt_path &lt;- tinytex::tinytex_root()</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>tt_path <span class="ot">&lt;-</span> tinytex<span class="sc">::</span><span class="fu">tinytex_root</span>()</span>
 <span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Build the correct path to the LaTeX binaries</span></span>
-<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a><span class="co">#bin_dir &lt;- list.dirs(file.path(tt_path, "bin"), recursive = FALSE)[1]</span></span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>bin_dir <span class="ot">&lt;-</span> <span class="fu">list.dirs</span>(<span class="fu">file.path</span>(tt_path, <span class="st">"bin"</span>), <span class="at">recursive =</span> <span class="cn">FALSE</span>)[<span class="dv">1</span>]</span>
 <span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepend that path to your R session's PATH</span></span>
-<span id="cb59-8"><a href="#cb59-8" aria-hidden="true" tabindex="-1"></a><span class="co">#Sys.setenv(PATH = paste(bin_dir, Sys.getenv("PATH"), sep = .Platform$path.sep))</span></span>
+<span id="cb59-8"><a href="#cb59-8" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="at">PATH =</span> <span class="fu">paste</span>(bin_dir, <span class="fu">Sys.getenv</span>(<span class="st">"PATH"</span>), <span class="at">sep =</span> .Platform<span class="sc">$</span>path.sep))</span>
 <span id="cb59-9"><a href="#cb59-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb59-10"><a href="#cb59-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Test again</span></span>
 <span id="cb59-11"><a href="#cb59-11" aria-hidden="true" tabindex="-1"></a><span class="co">#system("pdflatex --version")</span></span>
 <span id="cb59-12"><a href="#cb59-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb59-13"><a href="#cb59-13" aria-hidden="true" tabindex="-1"></a><span class="co">#writeLines(c(</span></span>
-<span id="cb59-14"><a href="#cb59-14" aria-hidden="true" tabindex="-1"></a>  <span class="co">#"\\documentclass{article}",</span></span>
-<span id="cb59-15"><a href="#cb59-15" aria-hidden="true" tabindex="-1"></a>  <span class="co">#"\\begin{document}",</span></span>
-<span id="cb59-16"><a href="#cb59-16" aria-hidden="true" tabindex="-1"></a>  <span class="co">#"Test!",</span></span>
-<span id="cb59-17"><a href="#cb59-17" aria-hidden="true" tabindex="-1"></a>  <span class="co">#"\\end{document}"</span></span>
+<span id="cb59-14"><a href="#cb59-14" aria-hidden="true" tabindex="-1"></a> <span class="co"># "\\documentclass{article}",</span></span>
+<span id="cb59-15"><a href="#cb59-15" aria-hidden="true" tabindex="-1"></a> <span class="co"># "\\begin{document}",</span></span>
+<span id="cb59-16"><a href="#cb59-16" aria-hidden="true" tabindex="-1"></a> <span class="co"># "Test!",</span></span>
+<span id="cb59-17"><a href="#cb59-17" aria-hidden="true" tabindex="-1"></a> <span class="co"># "\\end{document}"</span></span>
 <span id="cb59-18"><a href="#cb59-18" aria-hidden="true" tabindex="-1"></a><span class="co">#), "test.tex")</span></span>
 <span id="cb59-19"><a href="#cb59-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb59-20"><a href="#cb59-20" aria-hidden="true" tabindex="-1"></a><span class="co">#tinytex::pdflatex("test.tex")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -406,7 +408,7 @@ Attaching package: 'ggtree'</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">msaPrettyPrint</span>(alignment, <span class="at">output =</span><span class="st">"pdf"</span>, <span class="at">showNames =</span> <span class="st">"left"</span>, <span class="at">showLogo =</span> <span class="st">"none"</span>, <span class="at">verbose =</span> <span class="cn">TRUE</span>, <span class="at">file =</span> <span class="st">"whole_align.pdf"</span>, <span class="at">askForOverwrite=</span><span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Multiple alignment written to temporary file C:\Users\Kris\AppData\Local\Temp\Rtmpcr7yUF\seq370c7416041.fasta</code></pre>
+<pre><code>Multiple alignment written to temporary file C:\Users\Kris\AppData\Local\Temp\Rtmpc3UKYe\seq3acc6cdd423.fasta</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>File whole_align.tex created</code></pre>
@@ -415,7 +417,7 @@ Attaching package: 'ggtree'</code></pre>
 <pre><code>Output file whole_align.pdf created</code></pre>
 </div>
 </div>
-<p>Generates a PDF file with the sequence alignments. For some reason this breaks when verbose is false so the output is messy but nessicary.</p>
+<p>Generates a PDF file with the sequence alignments. For some reason this breaks when verbose is false so the output is messy but necessary.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>alignment_seqinr <span class="ot">&lt;-</span> <span class="fu">msaConvert</span>(alignment, <span class="at">type =</span> <span class="st">"seqinr::alignment"</span>)</span>
 <span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>distances <span class="ot">&lt;-</span> seqinr<span class="sc">::</span><span class="fu">dist.alignment</span>(alignment_seqinr, <span class="st">"identity"</span>)</span>
@@ -429,6 +431,7 @@ Attaching package: 'ggtree'</code></pre>
 </div>
 </div>
 </div>
+<p>This generates a tree based on the alignments generated previously. This tree does make sense. Both Lysinibacillus species were paired and the Bacillus species were not far apart. This comparison is only for ureA which only a part of the urease protein. It does however provide some information about the relation between urease proteins these five strains. In terms of R work this project provided experience with the msa package and working with fasta files.</p>
 
 </main>
 <!-- /main column -->
