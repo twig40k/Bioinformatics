@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.10)  15 APR 2025 12:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.10)  15 APR 2025 12:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -128,7 +128,7 @@ Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (c:/Users/Kris/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
-)) (C:/Users/Kris/AppData/Local/Temp/Rtmpc3UKYe/seq3acc6cdd423.fasta: . . . . )
+)) (C:/Users/Kris/AppData/Local/Temp/Rtmpymtgh0/seq3c4c61df2902.fasta: . . . . )
 LaTeX Font Info:    Trying to load font information for U+msa on input line 40.
  (c:/Users/Kris/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -150,8 +150,8 @@ L3 programming layer <2025-03-26>
  ) 
 Here is how much of TeX's memory you used:
  6909 strings out of 471606
- 82531 string characters out of 5519785
- 879959 words of memory out of 5000000
+ 82532 string characters out of 5519785
+ 879960 words of memory out of 5000000
  33485 multiletter control sequences out of 15000+600000
  629165 words of font info for 51 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191

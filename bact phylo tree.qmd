@@ -4,7 +4,7 @@ author: "Ryan Hanks"
 format: html
 ---
 
-The goal of this is to make a few trees based on 5 strains of bacteria and the urease A gene.
+The goal of this is to make a tree based on 5 strains of bacteria and the urease A gene.
 
 
 ```{r}
